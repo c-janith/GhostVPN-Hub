@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -214,6 +215,173 @@
             margin: 1rem 0;
         }
 
+        .how-it-works {
+            padding: 4rem 0;
+            background: var(--bg-primary);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .step-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: bold;
+        }
+
+        .tech-details {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .tech-toggle {
+            background: none;
+            border: 1px solid var(--accent-primary);
+            color: var(--text-primary);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tech-toggle:hover {
+            background: var(--accent-primary);
+        }
+
+        .tech-content {
+            margin-top: 2rem;
+            text-align: left;
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+
+        .tech-content h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        .tech-content ul {
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tech-content li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .service-details {
+            padding: 4rem 0;
+            background: var(--bg-secondary);
+        }
+
+        .description p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .platform-guides {
+            margin: 3rem 0;
+        }
+
+        .guide-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .guide-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+
+        .guide-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        .supported-packages {
+            margin-top: 3rem;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .package-card {
+            background: var(--bg-primary);
+            padding: 1.5rem;
+            border-radius: 1rem;
+        }
+
+        .package-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        .package-card ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .package-card li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .note {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .btn {
+            margin-top: 1rem;
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--accent-secondary);
+        }
+
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
@@ -244,22 +412,25 @@
                 text-align: center;
                 gap: 1rem;
             }
-            
-        
+
+
         }
     </style>
 </head>
+
 <body x-data="{ 
     mobileMenuOpen: false,
+    techDetailsOpen: false,
     faqItems: {
         'q1': false,
         'q2': false,
         'q3': false,
         'q4': false,
         'q5': false
-    }
+    },
+    
 }">
-    <!-- Navigation -->
+    <!-- Navigation (keep existing navigation) ... -->
     <nav>
         <div class="container nav-content">
             <div class="logo">GhostVPN HUB</div>
@@ -273,37 +444,183 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Updated Hero Section -->
     <section class="hero">
         <div class="container hero-content">
-            <h1>Secure Your Online Privacy</h1>
-            <p>Fast, reliable, and encrypted VPN service for all your devices</p>
+            <h1>Premium V2Ray VPN Tunneling Service</h1>
+            <p>Get Unlimited Internet Expirence For only Rs.600 </p>
             <a href="#pricing" class="btn">Get Started</a>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
+    <!-- Service Details Section -->
+    <section class="service-details">
         <div class="container">
-            <h2>Why Choose Us</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Military-grade Encryption</h3>
-                    <p>Your data is protected with AES-256 encryption</p>
+            <h2>කොහොමද මේක වෙන්නේ?</h2><br>
+
+            <!-- Main Description -->
+            <div class="description">
+                <p>මේකට ඔයා ඔයාගේ sim එකට package එකක් active කරල තියෙන්න ඕනි. අපි මේ හදලා දෙන්නෙ ඔයා use කරන ඩේටා
+                    packages bypass කරලා ඕනම site එකකට, Download එකකට use කරන්න පුළුවන් විදියක්.</p>
+
+                <p>මේකෙන් වෙන දේ සරළව කිව්වොත් අපි dialog zoom package එක දැම්මම zoom එකට විතරයි නෙ යන්න පුළුවන්. අපි
+                    දෙනවා මේකට code එකක්, ඒක අදාල VPN application එකට add කරලා, Run කරන්න විතරයි ඕනෙ. මේ code එක ලබා
+                    ගන්න නන් මාසිකව සුලු මුදලක් ගෙවිය යුතු වෙනවා.</p>
+            </div>
+
+            <!-- Platform Guides -->
+            <div class="platform-guides">
+                <h3>Setup Guides</h3>
+                <div class="guide-cards">
+                    <div class="guide-card">
+                        <h4>Android Users</h4>
+                        <p>අපි use කරනේ Netmod කියල app එකක්:</p>
+                        <a href="/android.html" class="btn" target="_blank">
+                            Android Tutorial
+                        </a>
+                    </div>
+                    <div class="guide-card">
+                        <h4>Windows Users</h4>
+                        <p>අපි use කරන්නේ Netmod කියල software එකක්:</p>
+                        <a href="/windows.html" class="btn" target="_blank">
+                            Windows Tutorial
+                        </a>
+                    </div>
+
                 </div>
-                <div class="feature-card">
-                    <h3>Global Servers</h3>
-                    <p>Access content from anywhere with our United States & Singapore server network</p>
+                <p class="note">මේ දෙන files හැම package එකකටම වැඩ කරන්නෙ නෑ.</p>
+            </div>
+
+            <!-- Supported Packages -->
+            <div class="supported-packages">
+                <h3>Supported Packages</h3>
+                <div class="package-grid">
+                    <!-- Airtel -->
+                    <div class="package-card">
+                        <h4>🎇 AIRTEL</h4>
+                        <ul>
+                            <li>199 | 909 | 389 Packages</li>
+                            <li>සාමාන්‍ය ස්පීඩ් එකකින් USE කරන්න පුළුවන්</li>
+                        </ul>
+                    </div>
+
+                    <!-- Hutch -->
+                    <div class="package-card">
+                        <h4>🎇 HUTCH</h4>
+                        <ul>
+                            <li>ZOOM - සාමාන්‍ය ස්පීඩ්</li>
+                            <li>Social - 492 (සාමාන්‍ය speed)</li>
+                            <li>505 - GAMING (Day: 60GB, Night: Unlimited)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Dialog -->
+                    <div class="package-card">
+                        <h4>🎇 DIALOG</h4>
+                        <ul>
+                            <li>SIM Users: 132 / 348 packages</li>
+                            <li>Router Users: 724 ZOOM (NO SPEED LIMIT)</li>
+                        </ul>
+                    </div>
+
+                    <!-- SLT Fiber -->
+                    <div class="package-card">
+                        <h4>🎇 SLT FIBER</h4>
+                        <ul>
+                            <li>WORK & LEARN Package (NO SPEED LIMIT)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Mobitel -->
+                    <div class="package-card">
+                        <h4>🎇 Mobitel</h4>
+                        <ul>
+                            <li>535 Package (Not guaranteed for all users)</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <h3>No Logs Policy</h3>
-                    <p>We never track or store your online activities</p>
+
+                <p class="note">අපි මේ PACKAGES වලට තමයි VPN දෙන්නෙ ඉස්සරහට ඒ නිසා මේ PACKAGES වලින් ඕන එකක් ACTIVE
+                    කරගන්න</p>
+                <p class="note">Mobile hotspot & wifi connection වලින් PC එකට use කරන්නත් පුළුවන්. Apple device වලටත්
+                    වැඩ කරනවා කිසිම ගැටළුවක් නැතුව.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How Our VPN Tunneling Works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Choose Your Package</h3>
+                    <p>Select from our ISP-optimized plans based on your bandwidth needs and device requirements</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Get Configuration</h3>
+                    <p>Receive your personalized V2Ray config file via WhatsApp immediately after payment confirmation
+                    </p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Setup Client</h3>
+                    <p>Import the config file into any V2Ray-compatible client (V2Box, V2RayNG, or Shadowrocket)</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Secure Connection</h3>
+                    <p>Connect to our ISP-grade servers through the encrypted tunnel and browse freely</p>
+                </div>
+            </div>
+
+            <!-- Technical Details Expandable Section -->
+            <div class="tech-details">
+                <button class="tech-toggle" @click="techDetailsOpen = !techDetailsOpen">
+                    Technical Specifications ▼
+                </button>
+                <div x-show="techDetailsOpen" class="tech-content">
+                    <h4>Network Architecture</h4>
+                    <ul>
+                        <li>Protocol: V2Ray Core v5.0+</li>
+                        <li>Transport: WebSocket + TLS</li>
+                        <li>Obfuscation: VMess AEAD</li>
+                        <li>ISP Partners: PTCL, Nayatel, Transworld</li>
+                    </ul>
+
+                    <h4>Client Requirements</h4>
+                    <ul>
+                        <li>Android: V2RayNG ≥ 1.7</li>
+                        <li>iOS: Shadowrocket ≥ 2.2.7</li>
+                        <li>Windows: V2Box ≥ 3.4.1</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Statistics Section -->
+    <!-- Updated Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Our Tunneling Advantage</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>ISP Partner Networks</h3>
+                    <p>Direct tunneling through major ISP networks for optimal speed and stability</p>
+                </div>
+                <div class="feature-card">
+                    <h3>V2Ray Protocol</h3>
+                    <p>Advanced obfuscation with VMess and VLESS protocols for secure connections</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Dedicated Bandwidth</h3>
+                    <p>Premium ISP-grade bandwidth allocation for consistent high-speed performance</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="statistics">
         <div class="container">
             <div class="stats-grid">
@@ -327,116 +644,135 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- Updated FAQ Section -->
     <section class="faq-section">
         <div class="container">
-            <h2>Frequently Asked Questions</h2>
+            <h2>Technical FAQ</h2>
             <div class="faq-list">
                 <div class="faq-item">
                     <button @click="faqItems.q1 = !faqItems.q1" class="faq-question">
-                        How secure is GhostVPN?
+                        What V2Ray configurations do you support?
                         <span x-text="faqItems.q1 ? '−' : '+'"></span>
                     </button>
                     <div x-show="faqItems.q1" class="faq-answer">
-                        We use military-grade AES-256 encryption to protect your data, along with a strict no-logs policy to ensure your privacy.
+                        We support VMess/VLESS over TCP/WS with TLS encryption. Custom configs available for enterprise
+                        users.
                     </div>
                 </div>
                 <div class="faq-item">
                     <button @click="faqItems.q2 = !faqItems.q2" class="faq-question">
-                        How many devices can I connect?
+                        How does ISP tunneling work?
                         <span x-text="faqItems.q2 ? '−' : '+'"></span>
                     </button>
                     <div x-show="faqItems.q2" class="faq-answer">
-                        Depending on your plan, you can connect between 5 and unlimited devices simultaneously.
+                        Our servers are directly peered with major ISPs, providing optimized routing and minimal
+                        latency.
                     </div>
                 </div>
-                <div class="faq-item">
-                    <button @click="faqItems.q3 = !faqItems.q3" class="faq-question">
-                        Do you offer a money-back guarantee?
-                        <span x-text="faqItems.q3 ? '−' : '+'"></span>
-                    </button>
-                    <div x-show="faqItems.q3" class="faq-answer">
-                        Yes, we offer a 30-day money-back guarantee on all our plans.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button @click="faqItems.q4 = !faqItems.q4" class="faq-question">
-                        Which platforms do you support?
-                        <span x-text="faqItems.q4 ? '−' : '+'"></span>
-                    </button>
-                    <div x-show="faqItems.q4" class="faq-answer">
-                        We support Windows, macOS, Android, iOS, and Linux, with browser extensions for Chrome and Firefox.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button @click="faqItems.q5 = !faqItems.q5" class="faq-question">
-                        Can I use Ghost VPN for streaming?
-                        <span x-text="faqItems.q5 ? '−' : '+'"></span>
-                    </button>
-                    <div x-show="faqItems.q5" class="faq-answer">
-                        Yes, our VPN is optimized for streaming services and supports HD/4K quality without buffering.
-                    </div>
-                </div>
+                <!-- Update other FAQ items similarly -->
             </div>
         </div>
     </section>
 
-    <!-- Shop Page -->
+
+    <!-- Updated Pricing Section with WhatsApp Links -->
     <section id="pricing" class="pricing">
         <div class="container">
-            <h2>Choose Your Plan</h2>
+            <h2>Select Your Tunnel Package</h2>
             <div class="pricing-grid">
+                <!-- Example Plan - Update all plan buttons similarly -->
                 <div class="price-card">
-                    <h3>Monthly</h3>
+                    <h3>Basic Tunnel</h3>
                     <div class="price">Rs.200</div>
                     <p>100GB Data</p>
                     <ul style="list-style: none; margin: 2rem 0;">
-                        <li>✓ All Premium Features</li>
-                        <li>✓ 1 Devices</li>
+                        <li>✓ V2Ray Core Access</li>
+                        <li>✓ ISP-Optimized Routes</li>
+                        <li>✓ Unlimited Devices</li>
                         <li>✓ 24/7 Support</li>
                     </ul>
-                    <a href="#" class="btn">Choose Plan</a>
-                </div>
-                <div class="price-card">
-                    <h3>Monthly</h3>
-                    <div class="price">Rs.300</div>
-                    <p>200GB Data</p>
-                    <ul style="list-style: none; margin: 2rem 0;">
-                        <li>✓ All Premium Features</li>
-                        <li>✓ 10 Devices</li>
-                        <li>✓ 24/7 Priority Support</li>
-                        
-                    </ul>
-                    <a href="#" class="btn">Choose Plan</a>
-                </div>
-                <div class="price-card">
-                    <h3>Monthly</h3>
-                    <div class="price">Rs.400</div>
-                    <p>300Gb Data</p>
-                    <ul style="list-style: none; margin: 2rem 0;">
-                        <li>✓ All Premium Features</li>
-                        <li>✓ Unlimited Devices</li>
-                        <li>✓ 24/7 Priority Support</li>
-                        
-                    </ul>
-                    <a href="#" class="btn">Choose Plan</a>
+                    <a href="https://wa.me/94788527876?text=Hi%21%20I%20want%20to%20buy%20Basic%20Tunnel%20package%20(100GB%20-%20Rs.200)"
+                        class="btn" target="_blank">
+                        Order via WhatsApp
+                    </a>
                 </div>
 
-                    <div class="price-card">
-                        <h3>Monthly</h3>
-                        <div class="price">Rs.600</div>
-                        <p>Unlimited Data</p>
-                        <ul style="list-style: none; margin: 2rem 0;">
-                            <li>✓ All Premium Features</li>
-                            <li>✓ Unlimited Devices</li>
-                            <li>✓ 24/7 Priority Support</li>
-                            <li>✓ Only 2 device Login</li>
-                           
-                        </ul>
-                    <a href="#" class="btn">Choose Plan</a>
+                <!-- Repeat for other plans with different WhatsApp messages -->
+                <!-- 200GB Plan -->
+                <div class="price-card">
+                    <h3>Pro Tunnel</h3>
+                    <div class="price">Rs.300</div>
+                    <p>200GB Data</p>
+                    <!-- ... -->
+                    <ul style="list-style: none; margin: 2rem 0;">
+                        <li>✓ V2Ray Core Access</li>
+                        <li>✓ ISP-Optimized Routes</li>
+                        <li>✓ Unlimited Devices</li>
+                        <li>✓ 24/7 Support</li>
+                        <li>✓ 30 Days</li>
+                    </ul>
+                    <a href="https://wa.me/94788527876?text=Hi%21%20I%20want%20to%20buy%20Pro%20Tunnel%20package%20(200GB%20-%20Rs.300)"
+                        class="btn" target="_blank">
+                        Order via WhatsApp
+                    </a>
+                </div>
+
+                <!-- 300GB Plan -->
+                <div class="price-card">
+                    <h3>Premium Tunnel</h3>
+                    <div class="price">Rs.400</div>
+                    <p>300GB Data</p>
+                    <!-- ... -->
+                    <ul style="list-style: none; margin: 2rem 0;">
+                        <li>✓ V2Ray Core Access</li>
+                        <li>✓ ISP-Optimized Routes</li>
+                        <li>✓ Unlimited Devices</li>
+                        <li>✓ 24/7 Support</li>
+                        <li>✓ 30 Days</li>
+                    </ul>
+                    <a href="https://wa.me/94788527876?text=Hi%21%20I%20want%20to%20buy%20Premium%20Tunnel%20package%20(300GB%20-%20Rs.400)"
+                        class="btn" target="_blank">
+                        Order via WhatsApp
+                    </a>
+                </div>
+
+                <!-- Unlimited Plan -->
+                <div class="price-card">
+                    <h3>Unlimited Access</h3>
+                    <div class="price">Rs.600</div>
+                    <p>Unlimited Data</p>
+                    <!-- ... -->
+                    <ul style="list-style: none; margin: 2rem 0;">
+                        <li>✓ V2Ray Core Access</li>
+                        <li>✓ ISP-Optimized Routes</li>
+                        <li>✓ 2 Devices</li>
+                        <li>✓ 24/7 Support</li>
+                        <li>✓ 30 Days</li>
+                    </ul>
+                    <a href="https://wa.me/94788527876?text=Hi%21%20I%20want%20to%20buy%20Unlimited%20Access%20package%20(Rs.600)"
+                        class="btn" target="_blank">
+                        Order via WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Add WhatsApp Float Button -->
+
+    <div style="position:fixed;bottom:20px;right:20px;z-index:100;">
+        <a href="https://wa.me/94788527876" target="_blank" style="display:flex;
+                  align-items:center;
+                  justify-content:center;
+                  width: 50px;
+                  height: 50px;
+                  background:#25D366;
+                  border-radius:50%;
+                  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+                  text-decoration: none;">
+            <img src="whatsapp.png" alt="WhatsApp" style="width: 30px; height: 30px; display: block;">
+        </a>
+    </div>
 </body>
+
 </html>
