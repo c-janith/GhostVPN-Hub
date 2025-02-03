@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureVPN - Tutorial</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.min.js"></script>
+    <style>
+        :root {
+            --bg-primary: #13111C;
+            --bg-secondary: #1A1726;
+            --accent-primary: #6D28D9;
+            --accent-secondary: #7C3AED;
+            --text-primary: #F3F4F6;
+            --text-secondary: #9CA3AF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-top: 4rem; /* Adjust for fixed nav */
+        }
+
+        nav {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+	    text-align: center;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .tutorial-section {
+            margin: 4rem 0;
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-radius: 0.5rem;
+        }
+
+        .tutorial-section h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .tutorial-video {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .tutorial-video iframe {
+            width: 100%;
+            max-width: 600px;
+            height: 315px;
+            margin-bottom: 1rem;
+        }
+
+        .btn-download {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .btn-download:hover {
+            background: var(--accent-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .tutorial-section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body x-data="{ mobileMenuOpen: false }">
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">GhostVPN HUB</div>
+            <button class="mobile-menu-btn" @click="mobileMenuOpen = !mobileMenuOpen">☰</button>
+            <div class="nav-links" :class="{ 'active': mobileMenuOpen }">
+                <a href="index.html">Home</a>
+                <a href="tutorial.html">Tutorial</a>
+                <a href="shop.html">Shop</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tutorial Section -->
+    <div class="container">
+        <h1>Tutorial Videos</h1>
+        <p style="text-align:center; margin-bottom:2rem;">Learn how to set up and use SecureVPN on your devices with our step-by-step tutorials.</p>
+
+       
+
+
+        <div class="tutorial-section">
+            <h2>For iOS</h2>
+            <div class="tutorial-video">
+                <video width="100%" height="400" controls loop="" muted="">
+                    <source src="https://github.com/c-janith/GhostVPN-Hub/raw/refs/heads/main/Tutorials/V2ray-on-ios.mp4" type="video/mp4">
+                </video> <br>
+                <p>Watch this guide to set up SecureVPN on your iPhone or iPad. Ensure your online activities are private and secure.</p><br>
+                <a href="https://apps.apple.com/us/app/npv-tunnel/id1629465476" class="btn-download">Download for iOS</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p style="text-align:center;">&copy; 2024 SecureVPN. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
