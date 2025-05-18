@@ -1,0 +1,546 @@
+:root {
+    --primary: #6e3bdc;
+    --primary-dark: #5a2fc2;
+    --secondary: #00d1b2;
+    --dark: #121218;
+    --darker: #0a0a0e;
+    --light: #f8f9fa;
+    --gray: #2d2d3a;
+    --light-gray: #a0a0b0;
+    --success: #00b894;
+    --warning: #fdcb6e;
+    --danger: #d63031;
+    --whatsapp: #25D366;
+    --telegram: #0088cc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--light);
+    background-color: var(--darker);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.background-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 20%, rgba(110, 59, 220, 0.15) 0%, rgba(0, 0, 0, 0) 30%),
+                radial-gradient(circle at 90% 80%, rgba(0, 209, 178, 0.15) 0%, rgba(0, 0, 0, 0) 30%);
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-top: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.logo i {
+    font-size: 2.5rem;
+    color: var(--primary);
+}
+
+.logo h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.logo h1 span {
+    font-weight: 300;
+}
+
+.tagline {
+    color: var(--light-gray);
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.card {
+    background: rgba(18, 18, 24, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    max-width: 600px;
+    margin: 0 auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.card-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--light);
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--success);
+}
+
+.pulse {
+    width: 10px;
+    height: 10px;
+    background-color: var(--success);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+/* Welcome Message */
+.welcome-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.welcome-card {
+    background: var(--dark);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 500px;
+    border: 1px solid var(--primary);
+}
+
+.welcome-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+/* ===== Modern Button Styles ===== */
+.welcome-card button {
+    margin-top: 1rem;
+    padding: 12px 24px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Primary Button (Continue) */
+.welcome-card > button {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(110, 59, 220, 0.3);
+}
+
+.welcome-card > button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(110, 59, 220, 0.4);
+}
+
+/* Install/Bookmark Buttons */
+.install-prompt button, 
+.bookmark-prompt button {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--light);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.install-prompt button:hover,
+.bookmark-prompt button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary);
+}
+
+/* Button Icons */
+.welcome-card button i {
+    font-size: 1.1em;
+}
+
+/* Keep your existing spacing */
+.install-prompt, .bookmark-prompt {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--gray);
+}
+/* Hide prompts based on device */
+@media (max-width: 768px) {
+    .bookmark-prompt { display: none; }
+}
+@media (min-width: 769px) {
+    .install-prompt { display: none; }
+}
+
+
+
+
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 184, 148, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 184, 148, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 184, 148, 0); }
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-field {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.input-field i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--light-gray);
+    font-size: 1rem;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 2.5rem;
+    background: var(--dark);
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    color: var(--light);
+    font-size: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(110, 59, 220, 0.2);
+}
+
+.clear-btn {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--light-gray);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.clear-btn:hover {
+    color: var(--light);
+}
+
+.input-field input:not(:placeholder-shown) + .clear-btn {
+    opacity: 1;
+}
+
+button {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.primary-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.primary-btn:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--gray);
+    border: none;
+    border-radius: 8px;
+    color: var(--light);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.secondary-btn:hover {
+    background: var(--dark);
+    transform: translateY(-2px);
+}
+
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gray);
+    border: none;
+    color: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn:hover {
+    background: var(--dark);
+    transform: translateY(-2px);
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark);
+    color: var(--light);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    margin-bottom: 0.5rem;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.result-container {
+    background: var(--dark);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--primary);
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+.result-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--light-gray);
+    height: 100%;
+    gap: 1rem;
+}
+
+.result-placeholder i {
+    font-size: 2rem;
+    opacity: 0.5;
+}
+
+.result-placeholder p {
+    font-size: 0.9rem;
+    max-width: 80%;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--gray);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-label {
+    color: var(--light-gray);
+}
+
+.result-value {
+    color: var(--light);
+    font-weight: 500;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quick-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.support-section {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.support-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--light);
+}
+
+.contact-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+}
+
+.whatsapp {
+    background: var(--whatsapp);
+    color: white;
+}
+
+.telegram {
+    background: var(--telegram);
+    color: white;
+}
+
+footer {
+    margin-top: 3rem;
+    text-align: center;
+    padding: 1.5rem 0;
+    color: var(--light-gray);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--gray);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.footer-links a {
+    color: var(--light-gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--light);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+    
+    .logo h1 {
+        font-size: 2rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .quick-actions {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .contact-buttons {
+        flex-direction: column;
+    }
+    
+    .contact-btn {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GhostVPN HUB | User Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-gradient"></div>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-ghost"></i>
+                <h1>GhostVPN <span>HUB</span></h1>
+            </div>
+            <p class="tagline">Secure. Private. Untraceable.</p>
+        </header>
+
+        <main>
+            <div class="welcome-message" id="welcomeMessage">
+                <div class="welcome-card">
+                        <h3>Welcome to GhostVPN HUB!</h3>
+                        <p>Your data loads automatically from cookies.</p>
+                        
+                        <!-- Install Button (Mobile) -->
+                        <div class="install-prompt">
+                            <button id="installButton">
+                                <i class="fas fa-home"></i> Add to Home Screen
+                            </button>
+                        </div>
+                        
+                        <!-- Bookmark Button (Desktop) -->
+                        <div class="bookmark-prompt">
+                            <button onclick="addBookmark()">
+                                <i class="fas fa-bookmark"></i> Bookmark This Page
+                            </button>
+                        </div>
+                        
+                        <!-- Continue Button -->
+                        <button onclick="hideWelcome()">
+                            <i class="fas fa-arrow-right"></i> Continue to Portal
+                        </button>
+                    </div>
+            </div>
+        
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>User Portal</h2>
+                    <div class="status-indicator">
+                        <div class="pulse"></div>
+                        <span>Service Active</span>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <div class="input-field">
+                        <i class="fas fa-user-secret"></i>
+                        <input type="text" id="v2rayInput" placeholder="Enter VPN username" autocomplete="off">
+                        <button class="clear-btn" id="clearBtn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <button class="primary-btn" onclick="extractRemark()">
+                        <i class="fas fa-search"></i> Check Status
+                    </button>
+                </div>
+
+                <div id="result" class="result-container">
+                    <div class="result-placeholder">
+                        <i class="fas fa-terminal"></i>
+                        <p>Your VPN connection details will appear here</p>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="secondary-btn" onclick="resetCookies()">
+                        <i class="fas fa-sync-alt"></i> Reset Session
+                    </button>
+                    <div class="quick-actions">
+                        <button class="icon-btn tooltip" data-tooltip="Download Config">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="icon-btn tooltip" data-tooltip="Connection Guide">
+                            <i class="fas fa-book"></i>
+                        </button>
+                        <button class="icon-btn tooltip" data-tooltip="Server Status">
+                            <i class="fas fa-server"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="support-section">
+                <h3>Need Assistance?</h3>
+                <div class="contact-buttons">
+                    <a href="https://wa.me/94788527876" class="contact-btn whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Support
+                    </a>
+                    <a href="https://t.me/Chamidu_Janith" class="contact-btn telegram" target="_blank">
+                        <i class="fab fa-telegram-plane"></i> Telegram Support
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2023 GhostVPN HUB. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Status Page</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
